@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Random Image + Quote Poster</h1>
+    <div class="app">
+      <h1>Random Image + Quote Poster</h1>
 
-    <div id="poster">
-      <img id="posterImage" src="https://picsum.photos/800/400" alt="Poster" />
-      <div id="posterQuote">
-        The only way to do great work is to love what you do.
+      <div id="poster">
+        <img id="posterImage" src="834-800x400.jpg" alt="Poster" />
+        <div id="posterQuote">
+          The only way to do great work is to love what you do.
+        </div>
       </div>
+
+      <button type="button" id="generateBtn">Generate New Poster</button>
+
+      <div id="status" aria-live="polite"></div>
     </div>
-
-    <button type="button" id="generateBtn">Generate New Poster</button>
-
-    <div id="status"></div>
 
     <script src="app.js"></script>
   </body>

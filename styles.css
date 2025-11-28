@@ -1,22 +1,113 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: #f4f6fb;
+  color: #0f172a;
+  font-family: "Segoe UI", "Helvetica Neue", system-ui, -apple-system, sans-serif;
+}
+
+.app {
+  width: min(960px, 94vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 30px 26px;
+  border-radius: 14px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw + 1rem, 2.4rem);
+  letter-spacing: 0.5px;
+}
+
 #poster {
   position: relative;
-  width: 800px;
-  height: 400px;
-  margin-bottom: 20px;
+  width: 100%;
+  max-width: 860px;
+  aspect-ratio: 2 / 1;
+  margin: 6px auto 10px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #e5e7eb;
+  border: 1px solid #d1d5db;
 }
 
 #poster img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 #posterQuote {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  font-size: 1.5rem;
-  color: white;
-  text-shadow: 0 0 5px black;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  padding: 14px 12px;
+  font-size: clamp(1.1rem, 1vw + 1rem, 1.6rem);
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+#generateBtn {
+  margin-top: 6px;
+  padding: 12px 22px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  background: #2563eb;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+#generateBtn:hover {
+  background: #1d4ed8;
+}
+
+#generateBtn:active {
+  background: #1e40af;
+}
+
+#status {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #0f172a;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  min-height: 22px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+#status.loading {
+  color: #1d4ed8;
+  border-color: #c7d2fe;
+  background: #e0e7ff;
+}
+
+#status.success {
+  color: #059669;
+  border-color: #a7f3d0;
+  background: #dcfce7;
 }

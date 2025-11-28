@@ -1,10 +1,14 @@
 // Default values
-const defaultImage = "https://picsum.photos/800/400";
+const defaultImage = "834-800x400.jpg";
 const defaultQuote = "The only way to do great work is to love what you do.";
 
 const statusEl = document.getElementById("status");
 const posterImage = document.getElementById("posterImage");
 const posterQuote = document.getElementById("posterQuote");
+const defaultStatus = "Ready to generate image and quote.";
+let statusResetTimeout;
+
+statusEl.textContent = defaultStatus;
 
 document.getElementById("generateBtn").addEventListener("click", () => {
   // TODO:
@@ -13,7 +17,10 @@ document.getElementById("generateBtn").addEventListener("click", () => {
   // 3. Fetch quote from https://dummyjson.com/quotes/random
   // 4. Update DOM with image + quote
   // 5. Handle failures with defaults
+  clearTimeout(statusResetTimeout);
   statusEl.textContent = "Loading poster...";
+  statusEl.classList.remove("success");
+  statusEl.classList.add("loading");
 
   Promise.all([
     fetch("https://picsum.photos/800/400")
@@ -37,5 +44,11 @@ document.getElementById("generateBtn").addEventListener("click", () => {
     posterImage.src = imageUrl;
     posterQuote.textContent = quote;
     statusEl.textContent = "Poster generated!";
+    statusEl.classList.remove("loading");
+    statusEl.classList.add("success");
+    statusResetTimeout = setTimeout(() => {
+      statusEl.textContent = defaultStatus;
+      statusEl.classList.remove("success", "loading");
+    }, 3000);
   });
 });
